@@ -3,12 +3,13 @@ import {Avatar, IconButton, Button} from '@material-ui/core'
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import ChatIcon from '@material-ui/icons/Chat';
 import SearchIcon from '@material-ui/icons/Search';
+import {auth} from '../firebase'
 
 function Sidebar() {
     return (
         <Container>
             <Header>
-                <UserIcon/>
+                <UserIcon onClick={() => auth.signOut()} src={auth.currentUser.photoURL}/>
                 <IconsContainer>
                     <IconButton>
                         <ChatIcon/>
